@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, DM_Sans, Share_Tech_Mono, Fira_Code } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "./_components/LanguageProvider";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -27,16 +28,21 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  title: "Sultonov Azizbek — Full-Stack Developer & Engineer",
+  title: "Azizbek Sultonov — Mobile & Web App Developer",
   description:
-    "Portfolio of Sultonov Azizbek. Full-stack developer crafting fast, accessible, and beautiful web experiences with modern tools.",
+    "Portfolio of Azizbek Sultonov. Flutter, Dart, Telegram bots, CRM workflows, and AI tools — turning business and product ideas into practical digital solutions.",
   keywords: [
+    "Azizbek Sultonov",
     "Sultonov Azizbek",
-    "Full-Stack Developer",
-    "Next.js",
-    "React",
-    "TypeScript",
+    "Flutter Developer",
+    "Dart",
+    "Mobile App Developer",
+    "Telegram Bot",
+    "AmoCRM",
+    "AI Tools",
     "Portfolio",
+    "Bukhara",
+    "Uzbekistan",
   ],
 };
 
@@ -46,11 +52,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="uz" className="scroll-smooth">
       <body
         className={`${spaceGrotesk.variable} ${dmSans.variable} ${shareTechMono.variable} ${firaCode.variable} bg-background text-text font-body pt-20 overflow-x-hidden selection:bg-primary selection:text-black antialiased`}
       >
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

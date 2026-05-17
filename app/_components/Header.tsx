@@ -1,23 +1,26 @@
 "use client";
 
 import { useState } from "react";
-
-const navLinks = [
-  { href: "#process", label: "Process" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#faq", label: "FAQ" },
-];
+import { useT } from "./LanguageProvider";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
+  const t = useT();
   const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    { href: "#process", label: t.nav.process },
+    { href: "#skills", label: t.nav.skills },
+    { href: "#projects", label: t.nav.projects },
+    { href: "#faq", label: t.nav.faq },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <a
           className="flex items-center gap-3 group"
-          aria-label="Sultonov Azizbek Home"
+          aria-label={t.nav.home}
           href="#hero"
         >
           <svg
@@ -33,9 +36,8 @@ export default function Header() {
             <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
             <path d="M2 12h20" />
           </svg>
-          <span className="font-heading font-bold text-xl tracking-wider text-white">
-            SULTONOV
-            <span className="text-primary">.DEV</span>
+          <span className="font-heading font-bold text-xl tracking-wide text-white">
+            Azizbek <span className="text-primary">Sultonov</span>
           </span>
         </a>
 
@@ -51,19 +53,20 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          <LanguageSwitcher />
           <a
-            className="hidden md:inline-flex items-center justify-center px-6 py-2 text-sm font-bold text-white bg-transparent border border-primary rounded hover:bg-primary hover:text-black transition-all duration-300 shadow-[0_0_10px_rgba(0,255,255,0.2)] hover:shadow-[0_0_20px_rgba(0,255,255,0.6)]"
+            className="hidden md:inline-flex items-center justify-center px-5 py-2 text-sm font-bold text-white bg-transparent border border-primary rounded hover:bg-primary hover:text-black transition-all duration-300 shadow-[0_0_10px_rgba(0,255,255,0.2)] hover:shadow-[0_0_20px_rgba(0,255,255,0.6)]"
             href="#contact"
           >
-            HIRE ME
+            {t.nav.hireMe}
           </a>
 
           <button
             type="button"
             onClick={() => setIsOpen((v) => !v)}
             className="md:hidden p-2 text-white hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary rounded"
-            aria-label="Toggle menu"
+            aria-label={t.nav.toggleMenu}
             aria-expanded={isOpen}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,7 +98,7 @@ export default function Header() {
             href="#contact"
             onClick={() => setIsOpen(false)}
           >
-            HIRE ME
+            {t.nav.hireMe}
           </a>
         </div>
       )}
