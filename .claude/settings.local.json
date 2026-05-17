@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl *)",
+      "Bash(npx --no-install next typegen)",
+      "Bash(npx --no-install tsc --noEmit)"
+    ]
+  }
+}
